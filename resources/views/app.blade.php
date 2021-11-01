@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                 <li class="nav-item"><a class="nav-link me-lg-3" href="#dataPrivacy" data-bs-toggle="modal">Privacy Notice</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3" href="#download">Verify</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3" href="#verify">Verify</a></li>
             </ul>
             <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
                         <span class="d-flex align-items-center">
@@ -52,12 +52,12 @@
 <footer class="bg-black text-center py-5">
     <div class="container px-5">
         <div class="text-white-50 small">
-            <div class="mb-2">&copy; Your Website 2021. All Rights Reserved.</div>
-            <a href="#!">Privacy</a>
+            <div class="mb-2">&copy; CSMC Data Validation. All Rights Reserved.</div>
+            <a href="#dataPrivacy" data-bs-toggle="modal">Privacy</a>
             <span class="mx-1">&middot;</span>
-            <a href="#!">Terms</a>
+            <a href="#verify" data-bs-toggle="modal">Verify</a>
             <span class="mx-1">&middot;</span>
-            <a href="#!">FAQ</a>
+            <a href="#feedbackModal" data-bs-toggle="modal">Login</a>
         </div>
     </div>
 </footer>
