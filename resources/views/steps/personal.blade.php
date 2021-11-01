@@ -5,6 +5,7 @@
 @extends('app')
 
 @section('content')
+    <img src="{{ url('/img/doh_csmc.png') }}" height="90px" />
     <div id="svg_wrap"></div>
 
     <h4>Covid-19 Bakuna Center Registry (CBCR) is tasked to collect all vaccinee data throughout the country. Only those vaccinated by CSMC Vaccination Team will be submitted for vaccination registry.</h4>
