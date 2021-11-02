@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeCtrl;
 use App\Http\Controllers\OptionCtrl;
 use App\Http\Controllers\VerifyCtrl;
+use App\Http\Controllers\SyncCtrl;
+use App\Http\Controllers\ListCtrl;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,4 +20,11 @@ use App\Http\Controllers\VerifyCtrl;
 Route::get('/', [HomeCtrl::class, 'index']);
 
 Route::get('/category', [OptionCtrl::class, 'category']);
-Route::post('/verify',[VerifyCtrl::class, 'verifyData'])->name('verify');
+Route::match(array('GET','POST'),'/verify',[VerifyCtrl::class,'index']);
+
+
+Route::get('/sync',[SyncCtrl::class, 'index']);
+Route::get('/sync/{status}',[SyncCtrl::class, 'sync']);
+
+
+Route::get('/list/{status}',[ListCtrl::class, 'index']);

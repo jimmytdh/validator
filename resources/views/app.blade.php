@@ -28,7 +28,7 @@
                     <a class="nav-link" href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#verify" data-toggle="modal"><i class="fa fa-search"></i> Verify Data</a>
+                    <a class="nav-link" href="{{ url("/verify") }}"><i class="fa fa-search"></i> Verify Data</a>
                 </li>
             </ul>
         </div>
@@ -49,10 +49,8 @@
 </header>
 
 <!-- Page Content -->
-<div class="wrapper pb-5">
-    <div class="container">
-        @yield('content')
-    </div>
+<div class="wrapper p-5">
+    @yield('content')
 </div>
 
 <!-- /.container -->
@@ -65,7 +63,6 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-@include('modal.verify_form')
 <script src="{{ asset('/js/jquery.min.js') }}"></script>
 <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
 

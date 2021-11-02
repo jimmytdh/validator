@@ -18,6 +18,22 @@
                     <h3 class="box-title">Personal Information</h3>
                 </div>
                 <div class="box-body">
+                    <div class="form-group">
+                        <small class="text-muted">Full Name:</small><br>
+                        <label class="text-success">{{ $person->first_name }} {{ $person->middle_name }} {{ $person->last_name }}</label>
+                    </div>
+                    <div class="form-group">
+                        <small class="text-muted">Date of Birth:</small><br>
+                        <label class="text-success">{{ date("M d, Y",strtotime($person->birthdate)) }}</label>
+                    </div>
+                    <div class="form-group">
+                        <small class="text-muted">Sex:</small><br>
+                        <label class="text-success">{{ ($person->sex=='M') ? 'Male': 'Female' }}</label>
+                    </div>
+                    <div class="form-group">
+                        <small class="text-muted">Address:</small><br>
+                        <label class="text-success">{{ \App\Http\Controllers\VerifyCtrl::address($person) }}</label>
+                    </div>
                     <table class="table-personal" width="100%">
                         <tr>
                             <th>Full Name</th>

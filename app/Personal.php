@@ -23,5 +23,7 @@ class Personal extends Model
         'brgy',
         'sex',
         'birthdate',
+        'status',
+        'date_submitted',
     ];
 }
