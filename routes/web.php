@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeCtrl;
 use App\Http\Controllers\OptionCtrl;
+use App\Http\Controllers\VerifyCtrl;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +15,7 @@ use App\Http\Controllers\OptionCtrl;
 |
 */
 
-Route::get('/', function () {
-    return view('steps.personal');
-});
+Route::get('/', [HomeCtrl::class, 'index']);
 
 Route::get('/category', [OptionCtrl::class, 'category']);
+Route::post('/verify',[VerifyCtrl::class, 'verifyData'])->name('verify');
