@@ -95,10 +95,13 @@
                         <?php $progress = 0; ?>
                         @if($data->status == 'inc')
                             <?php $progress = 30; ?>
-                            <strong>Incomplete. Click <a class="text-danger" href="{{ url('/register') }}">HERE </a> to complete your data. </strong>
+                            <strong>Incomplete. Click <a class="text-danger" href="{{ url('/upload/'.$data->id) }}">HERE </a> to complete your data. </strong>
+                        @elseif($data->status == 'review')
+                            <?php $progress = 40; ?>
+                            <strong>Data is being reviewed. Please check again later.</strong>
                         @elseif($data->status == 'ready')
                             <?php $progress = 60; ?>
-                            <strong>The data is being processed for submission.</strong>
+                            <strong>Data is being processed for submission.</strong>
                         @elseif($data->status == 'submit')
                             <?php $progress = 90; ?>
                             <strong>Your data was already submitted to Talisay CHO. Please check after 24 - 48 hours  for your registry to appear in <a href="vaxcert.doh.gov.ph">vaxcert.doh.gov.ph</a> website. Thank you!</strong>

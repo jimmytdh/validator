@@ -6,6 +6,7 @@ use App\Http\Controllers\OptionCtrl;
 use App\Http\Controllers\VerifyCtrl;
 use App\Http\Controllers\SyncCtrl;
 use App\Http\Controllers\ListCtrl;
+use App\Http\Controllers\UploadCtrl;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +29,6 @@ Route::get('/sync/{status}',[SyncCtrl::class, 'sync']);
 
 
 Route::get('/list/{status}',[ListCtrl::class, 'index']);
+
+Route::get('/upload/complete',[UploadCtrl::class,'complete']);
+Route::match(array('GET','POST'),'/upload/{id}',[UploadCtrl::class,'index']);
