@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Personal;
+use App\Vaccination;
 use Illuminate\Http\Request;
 
 class ListCtrl extends Controller
@@ -23,5 +24,13 @@ class ListCtrl extends Controller
         $data = $data->orderBy('first_name')->paginate(30);
 
         return view("list",compact('data','title'));
+    }
+
+    public function overall(){
+        $data = Vaccination::orderBy('vaccination_date','desc')
+                    ->orderBy('last_name','asc')
+                    ->leftJoin('personals','personals.id','=','vaccinations.person_id')
+                    ->paginate(100);
+        return view('all',compact('data'));
     }
 }

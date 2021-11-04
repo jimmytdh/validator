@@ -27,7 +27,7 @@ Route::match(array('GET','POST'),'/verify',[VerifyCtrl::class,'index']);
 Route::get('/sync',[SyncCtrl::class, 'index']);
 Route::get('/sync/{status}',[SyncCtrl::class, 'sync']);
 
-
+Route::get('/list/all',[ListCtrl::class, 'overall']);
 Route::get('/list/{status}',[ListCtrl::class, 'index']);
 
 Route::get('/upload/complete',[UploadCtrl::class,'complete']);
