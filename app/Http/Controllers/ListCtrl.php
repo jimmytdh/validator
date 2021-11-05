@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class ListCtrl extends Controller
 {
     public function index($status){
-        $data = Personal::select('*');
+        $data = Vaccination::orderBy('vaccination_date','desc')
+            ->leftJoin('personals','personals.id','=','vaccinations.person_id');
         $title = "List of All Data";
         if($status == 'blank'){
             $data = $data->where('status','');
@@ -21,7 +22,7 @@ class ListCtrl extends Controller
             $data = $data->where('status','ready');
             $title = "Ready to submit list";
         }
-        $data = $data->orderBy('first_name')->paginate(30);
+        $data = $data->orderBy('first_name')->paginate(1000);
 
         return view("list",compact('data','title'));
     }

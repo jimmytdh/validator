@@ -53,7 +53,7 @@
                 <tr>
                     <td>{{ $row->person_id }}</td>
                     <td>{{ $row->category }}</td>
-                    <td>{{ $row->person_unique_id }}</td>
+                    <td>{{ $row->unique_person_id }}</td>
                     <td>{{ $row->pwd }}</td>
                     <td>{{ $row->indigenous_member }}</td>
                     <td>{{ $row->last_name }}</td>
@@ -67,8 +67,8 @@
                     <td>{{ $row->brgy }}</td>
                     <td>{{ $row->sex }}</td>
                     <td>{{ $row->birthdate }}</td>
-                    <td>Deferral</td>
-                    <td>Reason for Deferral/Refusal</td>
+                    <td>N</td>
+                    <td></td>
                     <td>{{ $row->vaccination_date }}</td>
                     <td>{{ $row->manufacturer }}</td>
                     <td>{{ $row->batch_no }}</td>
@@ -77,8 +77,8 @@
                     <td>{{ $row->vaccinator }}</td>
                     <td>{{ $row->dose1 }}</td>
                     <td>{{ $row->dose2 }}</td>
-                    <td>Adverse Event</td>
-                    <td>Adverse Event Condition</td>
+                    <td>N</td>
+                    <td></td>
                 </tr>
                 @endforeach
             </tbody>

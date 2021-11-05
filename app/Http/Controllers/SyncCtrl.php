@@ -23,6 +23,8 @@ class SyncCtrl extends Controller
             $personal = Personal::where('status','')->get();
         }else if($status == 'inc'){
             $personal = Personal::where('status','inc')->get();
+        }else if($status == 'ready'){
+            $personal = Personal::where('status','ready')->get();
         }
 
         foreach($personal as $row){
@@ -30,14 +32,23 @@ class SyncCtrl extends Controller
             $dose1 = Vaccination::where('person_id',$row->id)->where('dose1','Y')->first();
             $dose2 = Vaccination::where('person_id',$row->id)->where('dose2','Y')->first();
 
-            if($row->unique_person_id == "0" || $row->contact_no == ''){
+            if($row->contact_no == ''){
                 Personal::find($row->id)->update([
                     'status' => 'inc'
                 ]);
                 continue;
             }
+
+            if($row->muncity == 'No City' || $row->brgy == 'No Barangay'){
+                Personal::find($row->id)->update([
+                    'status' => 'inc'
+                ]);
+                continue;
+            }
+
+
             if($dose1){
-                if($dose1->batch_no == '' || $dose1->vaccinator == ''){
+                if($dose1->vaccinator == ''){
                     Personal::find($row->id)->update([
                         'status' => 'inc'
                     ]);
@@ -45,7 +56,7 @@ class SyncCtrl extends Controller
                 }
             }
             if($dose2){
-                if($dose2->batch_no == '' || $dose2->vaccinator == ''){
+                if($dose2->vaccinator == ''){
                     Personal::find($row->id)->update([
                         'status' => 'inc'
                     ]);
